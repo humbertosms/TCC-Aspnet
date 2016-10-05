@@ -20,11 +20,11 @@ public class ProdutoDAO extends GenericDAO {
 			conn = getConnection();
 			if (p.getId() == null) {
 				stmt = conn.prepareStatement(
-						"INSERT INTO Produto (Nome, Descricao, Localizacao, Observacao, Cadastro, Validade, Comissao) "
+						"INSERT INTO produto (Nome, Descricao, Localizacao, Observacao, Cadastro, Validade, Comissao) "
 					  + "VALUES(?,?,?,?,?,?,?)", Statement.RETURN_GENERATED_KEYS);
 			} else {
 				stmt = conn.prepareStatement(
-						"UPDATE Produto SET Nome=?, Descricao=?, Localizacao=?, Observacao=?, Cadastro=?, Validade=?, "
+						"UPDATE produto SET Nome=?, Descricao=?, Localizacao=?, Observacao=?, Cadastro=?, Validade=?, "
 					  + "Comissao=? WHERE id=?");
 			}
 			stmt.setString(1, p.getNome());
@@ -123,7 +123,7 @@ public class ProdutoDAO extends GenericDAO {
 			contatoService.deleteFromIdProduto(e.getId());
 			dadoBancarioService.deleteFromIdProduto(e.getId());
 */
-			stmt = conn.prepareStatement("DELETE FROM Produto WHERE id=?");
+			stmt = conn.prepareStatement("DELETE FROM produto WHERE id=?");
 			stmt.setLong(1, e.getId());
 
 			int count = stmt.executeUpdate();
@@ -153,7 +153,7 @@ public class ProdutoDAO extends GenericDAO {
 		PreparedStatement stmt = null;
 		try {
 			conn = getConnection();
-			stmt = conn.prepareStatement("SELECT * FROM Produto WHERE id=?");
+			stmt = conn.prepareStatement("SELECT * FROM produto WHERE id=?");
 			stmt.setLong(1, id);
 			ResultSet rs = stmt.executeQuery();
 
@@ -179,7 +179,7 @@ public class ProdutoDAO extends GenericDAO {
 		PreparedStatement stmt = null;
 		try {
 			conn = getConnection();
-			stmt = conn.prepareStatement("SELECT * FROM Produto");
+			stmt = conn.prepareStatement("SELECT * FROM produto");
 			ResultSet rs = stmt.executeQuery();
 
 			while (rs.next()) {
