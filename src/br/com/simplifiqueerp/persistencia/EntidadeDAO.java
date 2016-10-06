@@ -41,7 +41,7 @@ public class EntidadeDAO extends GenericDAO {
 			conn = getConnection();
 			if (e.getId() == null) {
 				stmt = conn.prepareStatement(
-						"INSERT INTO Entidade (TipoPessoa, Nome, Apelido, CPF_CNPJ, RG_IE, Nascimento, "
+						"INSERT INTO entidade (TipoPessoa, Nome, Apelido, CPF_CNPJ, RG_IE, Nascimento, "
 						+ "Telefone, Fax, Celular, Email, Site, Observacao, Cadastro) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)",
 						Statement.RETURN_GENERATED_KEYS);
 			} else {
