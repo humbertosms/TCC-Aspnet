@@ -18,11 +18,11 @@ public class DadoBancarioDAO  extends GenericDAO {
 		try {
 			conn = getConnection();
 			if (conta.getId() == null) {
-				stmt = conn.prepareStatement("INSERT INTO DadoBancario (idEntidade, Banco, Agencia, AgenciaDigito, "
+				stmt = conn.prepareStatement("INSERT INTO dadoBancario (idEntidade, Banco, Agencia, AgenciaDigito, "
 						+ "Conta, ContaDigito) VALUES(?,?,?,?,?,?)",
 						Statement.RETURN_GENERATED_KEYS);
 			} else {
-				stmt = conn.prepareStatement("UPDATE DadoBancario SET idEntidade=?, Banco=?, Agencia=?, AgenciaDigito=?, "
+				stmt = conn.prepareStatement("UPDATE dadoBancario SET idEntidade=?, Banco=?, Agencia=?, AgenciaDigito=?, "
 						+ "Conta=?, ContaDigito=?" + "WHERE id=?");
 			}
 			stmt.setLong(1, conta.getIdEntidade());
@@ -62,7 +62,7 @@ public class DadoBancarioDAO  extends GenericDAO {
 		PreparedStatement stmt = null;
 		try {
 			conn = getConnection();
-			stmt = conn.prepareStatement("DELETE FROM DadoBancario WHERE id=?");
+			stmt = conn.prepareStatement("DELETE FROM dadoBancario WHERE id=?");
 			stmt.setLong(1, conta.getId());
 			
 			int count = stmt.executeUpdate();
@@ -83,7 +83,7 @@ public class DadoBancarioDAO  extends GenericDAO {
 		PreparedStatement stmt = null;
 		try {
 			conn = getConnection();
-			stmt = conn.prepareStatement("DELETE FROM DadoBancario WHERE idEntidade=?");
+			stmt = conn.prepareStatement("DELETE FROM dadoBancario WHERE idEntidade=?");
 			stmt.setLong(1, idEntidade);
 
 			int count = stmt.executeUpdate();
@@ -105,7 +105,7 @@ public class DadoBancarioDAO  extends GenericDAO {
 		PreparedStatement stmt = null;
 		try {
 			conn = getConnection();
-			stmt = conn.prepareStatement("SELECT * FROM DadoBancario WHERE idEntidade=?");
+			stmt = conn.prepareStatement("SELECT * FROM dadoBancario WHERE idEntidade=?");
 			stmt.setLong(1, idEntidade);
 
 			ResultSet rs = stmt.executeQuery();

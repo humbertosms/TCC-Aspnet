@@ -79,7 +79,7 @@ public class CidadeDAO extends GenericDAO {
 		PreparedStatement stmt = null;
 		try {
 			conn = getConnection();
-			stmt = conn.prepareStatement("SELECT * FROM Cidade WHERE id=?");
+			stmt = conn.prepareStatement("SELECT * FROM cidade WHERE id=?");
 			stmt.setLong(1, id);
 
 			ResultSet rs = stmt.executeQuery();
@@ -106,7 +106,7 @@ public class CidadeDAO extends GenericDAO {
 		PreparedStatement stmt = null;
 		try {
 			conn = getConnection();
-			stmt = conn.prepareStatement("SELECT * FROM Cidade WHERE uf=? ORDER BY Nome");
+			stmt = conn.prepareStatement("SELECT * FROM cidade WHERE uf=? ORDER BY Nome");
 			stmt.setString(1, uf);
 
 			ResultSet rs = stmt.executeQuery();

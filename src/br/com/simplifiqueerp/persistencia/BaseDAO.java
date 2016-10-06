@@ -17,7 +17,8 @@ public class BaseDAO {
 
 	protected Connection getConnection() throws SQLException {
 		// URL de conexão com o banco de dados
-		String url = "jdbc:mysql://85.10.205.173.net/simplifiqueerp";
+		//String url = "jdbc:mysql://85.10.205.173.net/simplifiqueerp";
+		String url = "jdbc:mysql://db4free.net/simplifiqueerp";
 		// Conecta utilizando a URL, usuário e senha.
 		Connection conn = DriverManager.getConnection(url, "adminsimplifique", "S1mpl1f1qu33rp");
 		return conn;

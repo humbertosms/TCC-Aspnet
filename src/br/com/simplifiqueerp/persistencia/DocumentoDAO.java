@@ -100,7 +100,7 @@ public class DocumentoDAO  extends GenericDAO {
 		PreparedStatement stmt = null;
 		try {
 			conn = getConnection();
-			stmt = conn.prepareStatement("SELECT * FROM Documento WHERE idEntidade=?");
+			stmt = conn.prepareStatement("SELECT * FROM documento WHERE idEntidade=?");
 			stmt.setLong(1, idEntidade);
 
 			ResultSet rs = stmt.executeQuery();

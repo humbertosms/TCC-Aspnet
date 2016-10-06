@@ -19,11 +19,11 @@ public class UsuarioDAO extends GenericDAO {
 		try {
 			conn = getConnection();
 			if (u.getId() == null) {
-				stmt = conn.prepareStatement("INSERT INTO Usuario (idEntidade, Login, Senha) VALUES(?,?,?)",
+				stmt = conn.prepareStatement("INSERT INTO usuario (idEntidade, Login, Senha) VALUES(?,?,?)",
 						Statement.RETURN_GENERATED_KEYS);
 			} else {
 				stmt = conn.prepareStatement(
-						"UPDATE Usuario SET idEntidade=?, Login=?, Senha=?" + "WHERE id=?");
+						"UPDATE usuario SET idEntidade=?, Login=?, Senha=?" + "WHERE id=?");
 			}
 			stmt.setLong(1, u.getEntidade().getId());
 			stmt.setString(2, u.getLogin());
@@ -59,7 +59,7 @@ public class UsuarioDAO extends GenericDAO {
 		PreparedStatement stmt = null;
 		try {
 			conn = getConnection();
-			stmt = conn.prepareStatement("DELETE FROM Usuario WHERE id=?");
+			stmt = conn.prepareStatement("DELETE FROM usuario WHERE id=?");
 			stmt.setLong(1, id);
 			int count = stmt.executeUpdate();
 			boolean ok = count > 0;
@@ -79,7 +79,7 @@ public class UsuarioDAO extends GenericDAO {
 		PreparedStatement stmt = null;
 		try {
 			conn = getConnection();
-			stmt = conn.prepareStatement("DELETE FROM Usuario WHERE idEntidade=?");
+			stmt = conn.prepareStatement("DELETE FROM usuario WHERE idEntidade=?");
 			stmt.setLong(1, entidade.getId());
 			int count = stmt.executeUpdate();
 			boolean ok = count > 0;
@@ -99,7 +99,7 @@ public class UsuarioDAO extends GenericDAO {
 		PreparedStatement stmt = null;
 		try {
 			conn = getConnection();
-			stmt = conn.prepareStatement("SELECT * FROM Usuario WHERE id=?");
+			stmt = conn.prepareStatement("SELECT * FROM usuario WHERE id=?");
 			stmt.setLong(1, id);
 			ResultSet rs = stmt.executeQuery();
 
@@ -124,7 +124,7 @@ public class UsuarioDAO extends GenericDAO {
 		PreparedStatement stmt = null;
 		try {
 			conn = getConnection();
-			stmt = conn.prepareStatement("SELECT * FROM Usuario WHERE idEntidade=?");
+			stmt = conn.prepareStatement("SELECT * FROM usuario WHERE idEntidade=?");
 			stmt.setLong(1, id);
 			ResultSet rs = stmt.executeQuery();
 
@@ -150,7 +150,7 @@ public class UsuarioDAO extends GenericDAO {
 		PreparedStatement stmt = null;
 		try {
 			conn = getConnection();
-			stmt = conn.prepareStatement("SELECT * FROM Usuario");
+			stmt = conn.prepareStatement("SELECT * FROM usuario");
 			ResultSet rs = stmt.executeQuery();
 
 			while (rs.next()) {

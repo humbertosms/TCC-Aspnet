@@ -46,7 +46,7 @@ public class EntidadeDAO extends GenericDAO {
 						Statement.RETURN_GENERATED_KEYS);
 			} else {
 				stmt = conn.prepareStatement(
-						"UPDATE Entidade SET TipoPessoa=?, Nome=?, Apelido=?, CPF_CNPJ=?, RG_IE=?, Nascimento=?, "
+						"UPDATE entidade SET TipoPessoa=?, Nome=?, Apelido=?, CPF_CNPJ=?, RG_IE=?, Nascimento=?, "
 						+ "Telefone=?, Fax=?, Celular=?, Email=?, Site=?, Observacao=?, Cadastro=? WHERE id=?");
 			}
 			stmt.setString(1, e.getTipoPessoa());
@@ -151,7 +151,7 @@ public class EntidadeDAO extends GenericDAO {
 			contatoService.deleteFromIdEntidade(e.getId());
 			dadoBancarioService.deleteFromIdEntidade(e.getId());
 			
-			stmt = conn.prepareStatement("DELETE FROM Entidade WHERE id=?");
+			stmt = conn.prepareStatement("DELETE FROM entidade WHERE id=?");
 			stmt.setLong(1, e.getId());
 
 			int count = stmt.executeUpdate();
@@ -182,7 +182,7 @@ public class EntidadeDAO extends GenericDAO {
 		PreparedStatement stmt = null;
 		try {
 			conn = getConnection();
-			stmt = conn.prepareStatement("SELECT * FROM Entidade WHERE id=?");
+			stmt = conn.prepareStatement("SELECT * FROM entidade WHERE id=?");
 			stmt.setLong(1, id);
 			ResultSet rs = stmt.executeQuery();
 
@@ -208,7 +208,7 @@ public class EntidadeDAO extends GenericDAO {
 		PreparedStatement stmt = null;
 		try {
 			conn = getConnection();
-			stmt = conn.prepareStatement("SELECT * FROM Entidade");
+			stmt = conn.prepareStatement("SELECT * FROM entidade");
 			ResultSet rs = stmt.executeQuery();
 
 			while (rs.next()) {
@@ -234,7 +234,7 @@ public class EntidadeDAO extends GenericDAO {
 		PreparedStatement stmt = null;
 		try {
 			conn = getConnection();
-			stmt = conn.prepareStatement("SELECT * FROM Entidade");
+			stmt = conn.prepareStatement("SELECT * FROM entidade");
 			ResultSet rs = stmt.executeQuery();
 
 			while (rs.next()) {

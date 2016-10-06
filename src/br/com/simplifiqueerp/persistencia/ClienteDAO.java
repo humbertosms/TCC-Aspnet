@@ -19,10 +19,10 @@ public class ClienteDAO extends GenericDAO {
 		try {
 			conn = getConnection();
 			if (c.getId() == null) {
-				stmt = conn.prepareStatement("INSERT INTO Cliente (idEntidade, Credito) VALUES(?,?)",
+				stmt = conn.prepareStatement("INSERT INTO cliente (idEntidade, Credito) VALUES(?,?)",
 						Statement.RETURN_GENERATED_KEYS);
 			} else {
-				stmt = conn.prepareStatement("UPDATE Cliente SET idEntidade=?, Nascimento=?, Credito=? " + "WHERE id=?");
+				stmt = conn.prepareStatement("UPDATE cliente SET idEntidade=?, Nascimento=?, Credito=? " + "WHERE id=?");
 			}
 			stmt.setLong(1, c.getEntidade().getId());
 			stmt.setDouble(2, c.getCredito());
@@ -57,7 +57,7 @@ public class ClienteDAO extends GenericDAO {
 		PreparedStatement stmt = null;
 		try {
 			conn = getConnection();
-			stmt = conn.prepareStatement("DELETE FROM Cliente WHERE id=?");
+			stmt = conn.prepareStatement("DELETE FROM cliente WHERE id=?");
 			stmt.setLong(1, id);
 			int count = stmt.executeUpdate();
 			boolean ok = count > 0;
@@ -77,7 +77,7 @@ public class ClienteDAO extends GenericDAO {
 		PreparedStatement stmt = null;
 		try {
 			conn = getConnection();
-			stmt = conn.prepareStatement("DELETE FROM Cliente WHERE idEntidade=?");
+			stmt = conn.prepareStatement("DELETE FROM cliente WHERE idEntidade=?");
 			stmt.setLong(1, entidade.getId());
 			int count = stmt.executeUpdate();
 			boolean ok = count > 0;
@@ -97,7 +97,7 @@ public class ClienteDAO extends GenericDAO {
 		PreparedStatement stmt = null;
 		try {
 			conn = getConnection();
-			stmt = conn.prepareStatement("SELECT * FROM Cliente WHERE id=?");
+			stmt = conn.prepareStatement("SELECT * FROM cliente WHERE id=?");
 			stmt.setLong(1, id);
 			ResultSet rs = stmt.executeQuery();
 
@@ -122,7 +122,7 @@ public class ClienteDAO extends GenericDAO {
 		PreparedStatement stmt = null;
 		try {
 			conn = getConnection();
-			stmt = conn.prepareStatement("SELECT * FROM Cliente WHERE idEntidade=?");
+			stmt = conn.prepareStatement("SELECT * FROM cliente WHERE idEntidade=?");
 			stmt.setLong(1, id);
 			ResultSet rs = stmt.executeQuery();
 
@@ -148,7 +148,7 @@ public class ClienteDAO extends GenericDAO {
 		PreparedStatement stmt = null;
 		try {
 			conn = getConnection();
-			stmt = conn.prepareStatement("SELECT * FROM Cliente");
+			stmt = conn.prepareStatement("SELECT * FROM cliente");
 			ResultSet rs = stmt.executeQuery();
 
 			while (rs.next()) {

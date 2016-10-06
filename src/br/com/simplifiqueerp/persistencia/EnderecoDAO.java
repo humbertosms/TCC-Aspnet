@@ -111,7 +111,7 @@ public class EnderecoDAO extends GenericDAO {
 		PreparedStatement stmt = null;
 		try {
 			conn = getConnection();
-			stmt = conn.prepareStatement("SELECT * FROM Endereco WHERE idEntidade=?");
+			stmt = conn.prepareStatement("SELECT * FROM endereco WHERE idEntidade=?");
 			stmt.setLong(1, idEntidade);
 
 			ResultSet rs = stmt.executeQuery();

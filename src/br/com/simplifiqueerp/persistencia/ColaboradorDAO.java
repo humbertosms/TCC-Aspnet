@@ -19,7 +19,7 @@ public class ColaboradorDAO extends GenericDAO {
 		try {
 			conn = getConnection();
 			if (c.getId() == null) {
-				stmt = conn.prepareStatement("INSERT INTO Colaborador (idEntidade, Comissao) VALUES(?,?)",
+				stmt = conn.prepareStatement("INSERT INTO colaborador (idEntidade, Comissao) VALUES(?,?)",
 						Statement.RETURN_GENERATED_KEYS);
 			} else {
 				stmt = conn.prepareStatement(
@@ -58,7 +58,7 @@ public class ColaboradorDAO extends GenericDAO {
 		PreparedStatement stmt = null;
 		try {
 			conn = getConnection();
-			stmt = conn.prepareStatement("DELETE FROM Colaborador WHERE id=?");
+			stmt = conn.prepareStatement("DELETE FROM colaborador WHERE id=?");
 			stmt.setLong(1, id);
 			int count = stmt.executeUpdate();
 			boolean ok = count > 0;
@@ -78,7 +78,7 @@ public class ColaboradorDAO extends GenericDAO {
 		PreparedStatement stmt = null;
 		try {
 			conn = getConnection();
-			stmt = conn.prepareStatement("DELETE FROM Colaborador WHERE idEntidade=?");
+			stmt = conn.prepareStatement("DELETE FROM colaborador WHERE idEntidade=?");
 			stmt.setLong(1, entidade.getId());
 			int count = stmt.executeUpdate();
 			boolean ok = count > 0;
@@ -98,7 +98,7 @@ public class ColaboradorDAO extends GenericDAO {
 		PreparedStatement stmt = null;
 		try {
 			conn = getConnection();
-			stmt = conn.prepareStatement("SELECT * FROM Colaborador WHERE id=?");
+			stmt = conn.prepareStatement("SELECT * FROM colaborador WHERE id=?");
 			stmt.setLong(1, id);
 			ResultSet rs = stmt.executeQuery();
 
@@ -123,7 +123,7 @@ public class ColaboradorDAO extends GenericDAO {
 		PreparedStatement stmt = null;
 		try {
 			conn = getConnection();
-			stmt = conn.prepareStatement("SELECT * FROM Colaborador WHERE idEntidade=?");
+			stmt = conn.prepareStatement("SELECT * FROM colaborador WHERE idEntidade=?");
 			stmt.setLong(1, id);
 			ResultSet rs = stmt.executeQuery();
 
@@ -149,7 +149,7 @@ public class ColaboradorDAO extends GenericDAO {
 		PreparedStatement stmt = null;
 		try {
 			conn = getConnection();
-			stmt = conn.prepareStatement("SELECT * FROM Colaborador");
+			stmt = conn.prepareStatement("SELECT * FROM colaborador");
 			ResultSet rs = stmt.executeQuery();
 
 			while (rs.next()) {

@@ -19,10 +19,10 @@ public class FornecedorDAO extends GenericDAO {
 		try {
 			conn = getConnection();
 			if (f.getId() == null) {
-				stmt = conn.prepareStatement("INSERT INTO Fornecedor (idEntidade) VALUES(?)",
+				stmt = conn.prepareStatement("INSERT INTO fornecedor (idEntidade) VALUES(?)",
 						Statement.RETURN_GENERATED_KEYS);
 			} else {
-				stmt = conn.prepareStatement("UPDATE Fornecedor SET idEntidade=?" + "WHERE id=?");
+				stmt = conn.prepareStatement("UPDATE fornecedor SET idEntidade=?" + "WHERE id=?");
 			}
 			stmt.setLong(1, f.getEntidade().getId());
 
@@ -56,7 +56,7 @@ public class FornecedorDAO extends GenericDAO {
 		PreparedStatement stmt = null;
 		try {
 			conn = getConnection();
-			stmt = conn.prepareStatement("DELETE FROM Fornecedor WHERE id=?");
+			stmt = conn.prepareStatement("DELETE FROM fornecedor WHERE id=?");
 			stmt.setLong(1, id);
 			int count = stmt.executeUpdate();
 			boolean ok = count > 0;
@@ -76,7 +76,7 @@ public class FornecedorDAO extends GenericDAO {
 		PreparedStatement stmt = null;
 		try {
 			conn = getConnection();
-			stmt = conn.prepareStatement("DELETE FROM Fornecedor WHERE idEntidade=?");
+			stmt = conn.prepareStatement("DELETE FROM fornecedor WHERE idEntidade=?");
 			stmt.setLong(1, entidade.getId());
 			int count = stmt.executeUpdate();
 			boolean ok = count > 0;
@@ -96,7 +96,7 @@ public class FornecedorDAO extends GenericDAO {
 		PreparedStatement stmt = null;
 		try {
 			conn = getConnection();
-			stmt = conn.prepareStatement("SELECT * FROM Fornecedor WHERE id=?");
+			stmt = conn.prepareStatement("SELECT * FROM fornecedor WHERE id=?");
 			stmt.setLong(1, id);
 			ResultSet rs = stmt.executeQuery();
 
@@ -121,7 +121,7 @@ public class FornecedorDAO extends GenericDAO {
 		PreparedStatement stmt = null;
 		try {
 			conn = getConnection();
-			stmt = conn.prepareStatement("SELECT * FROM Fornecedor WHERE idEntidade=?");
+			stmt = conn.prepareStatement("SELECT * FROM fornecedor WHERE idEntidade=?");
 			stmt.setLong(1, id);
 			ResultSet rs = stmt.executeQuery();
 
@@ -147,7 +147,7 @@ public class FornecedorDAO extends GenericDAO {
 		PreparedStatement stmt = null;
 		try {
 			conn = getConnection();
-			stmt = conn.prepareStatement("SELECT * FROM Fornecedor");
+			stmt = conn.prepareStatement("SELECT * FROM fornecedor");
 			ResultSet rs = stmt.executeQuery();
 
 			while (rs.next()) {
